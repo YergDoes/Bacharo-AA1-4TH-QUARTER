@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up · Smart Cities, Sustainable Future</title>
+    <link rel="icon" type="image/x-icon" href="SDG.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Create an account</h1>
+    <p class="subhead">Join our community — it only takes a minute.</p>
+
+    <form id="signupForm" onsubmit="return validateForm()">
+      <!-- ========== PERSONAL INFORMATION ========== -->
+      <fieldset>
+        <legend>Basic information</legend>
+
+        <!-- Full name -->
+        <div class="form-group">
+          <label for="fullname">Full name</label>
+          <input type="text" id="fullname" name="fullname" 
+                 onfocus="clearFieldError('fullnameError')" onblur="validateFullname()">
+          <span id="fullnameError" class="error-message"></span>
+        </div>
+
+        <!-- Birthdate -->
+        <div class="form-group">
+          <label for="birthdate">Birthdate</label>
+          <input type="date" id="birthdate" name="birthdate"
+                 onfocus="clearFieldError('birthdateError')" onblur="validateBirthdate()">
+          <span id="birthdateError" class="error-message"></span>
+        </div>
+
+        <!-- Sex (radio group) -->
+        <div class="form-group">
+          <span class="label-text">Sex</span>
+          <div class="radio-group">
+            <label><input type="radio" name="sex" value="female"> Female</label>
+            <label><input type="radio" name="sex" value="male"> Male</label>
+            <label><input type="radio" name="sex" value="other"> Other</label>
+          </div>
+          <span id="sexError" class="error-message"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email"
+                 onfocus="clearFieldError('emailError')" onblur="validateEmail()">
+          <span id="emailError" class="error-message"></span>
+        </div>
+      </fieldset>
+
+      <!-- Account details -->
+      <fieldset>
+        <legend>Account details</legend>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username"
+                 onfocus="clearFieldError('usernameError')" onblur="validateUsername()">
+          <span id="usernameError" class="error-message"></span>
+          <small>8–20 characters, letters and numbers only</small>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password"
+                 onfocus="clearFieldError('passwordError')" onblur="validatePassword()">
+          <span id="passwordError" class="error-message"></span>
+          <small>Min. 10 chars, at least one uppercase, one lowercase, one digit</small>
+        </div>
+
+        <!-- Confirm password -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword"
+                 onfocus="clearFieldError('confirmError')" onblur="validateConfirm()">
+          <span id="confirmError" class="error-message"></span>
+        </div>
+      </fieldset>
+
+      <!-- Topic Questions -->
+      <fieldset>
+        <legend>A few questions</legend>
+
+        <!-- Dropdown: How did you find us? -->
+        <div class="form-group">
+          <label for="referrer">How did you hear about us?</label>
+          <select id="referrer" name="referrer"
+                  onfocus="clearFieldError('referrerError')" onchange="validateReferrer()">
+            <option value="">Select an option</option>
+            <option value="social">Social media</option>
+            <option value="search">Search engine</option>
+            <option value="friend">Friend or colleague</option>
+            <option value="other">Other</option>
+          </select>
+          <span id="referrerError" class="error-message"></span>
+        </div>
+
+        <!-- Checkbox list: Interests (topic-related) -->
+        <div class="form-group">
+          <span class="label-text">I'm interested in (check all that apply):</span>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="interests" value="tech"> Technology</label>
+            <label><input type="checkbox" name="interests" value="design"> Design</label>
+            <label><input type="checkbox" name="interests" value="business"> Business</label>
+          </div>
+          <span id="interestsError" class="error-message"></span>
+        </div>
+
+        <!-- Third topic question: text input -->
+        <div class="form-group">
+          <label for="favoriteTopic">Favorite topic / keyword</label>
+          <input type="text" id="favoriteTopic" name="favoriteTopic" placeholder="e.g., JavaScript, UX, startups"
+                 onfocus="clearFieldError('topicError')" onblur="validateTopic()">
+          <span id="topicError" class="error-message"></span>
+        </div>
+      </fieldset>
+
+      <!-- Success / submission feedback -->
+      <div id="formFeedback" class="success-message"></div>
+
+      <button type="submit" class="submit-btn">Sign up</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
